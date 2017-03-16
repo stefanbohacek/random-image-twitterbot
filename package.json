@@ -1,0 +1,19 @@
+{
+  "name": "random-image-tweet",
+  "version": "1.0.0",
+  "description": "Tweet a random image from a folder.",
+  "main": "server.js",
+  "dependencies": {
+    "gulp-nodemon": "^2.0.3",
+    "twit": "^2.1.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.6.2",
+    "gulp-notify": "^1.2.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "stefan@fourtonfish.com",
+  "license": "MIT"
+}
