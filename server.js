@@ -5,13 +5,13 @@ var fs = require('fs'),
 
 var T = new Twit(config);
 
-function pick_random_image(images){
+function random_from_array(images){
   return images[Math.floor(Math.random() * images.length)];
 }
 
 function upload_random_image(images){
   console.log('Opening an image...');
-  var image_path = path.join(__dirname, '/images/' + pick_random_image(images)),
+  var image_path = path.join(__dirname, '/images/' + random_from_array(images)),
       b64content = fs.readFileSync(image_path, { encoding: 'base64' });
 
   console.log('Uploading an image...');
@@ -26,6 +26,14 @@ function upload_random_image(images){
       console.log('Now tweeting it...');
 
       T.post('statuses/update', {
+        /* You can include text with your image as well. */            
+        // status: 'New picture!', 
+        /* Or you can pick random text from an array. */            
+        status: random_from_array([
+          'New picture!',
+          'Check this out!',
+          'How cute!'
+        ]),
         media_ids: new Array(data.media_id_string)
       },
         function(err, data, response) {
