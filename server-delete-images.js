@@ -66,17 +66,6 @@ function upload_random_image(images){
                   }
                   else{
                     console.log('image ' + image_path + ' was deleted');
-                    /*
-                      You have two options here. Either you will keep your bot running, and upload the next image using setTimeout
-                      (see below; 10000 means '10 milliseconds', or 10 seconds), --
-                    */
-                    setTimeout(function(){
-                      upload_random_image(images);
-                    }, 10000);
-                    /*
-                      Or you could use cron (code.tutsplus.com/tutorials/scheduling-tasks-with-cron-jobs--net-8800),
-                      in which case you can remove the function above:
-                    */
                   }
                 });
               }
