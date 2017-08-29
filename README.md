@@ -14,4 +14,4 @@ Oh and definitely join [Botmakers](https://botmakers.org/)!
 
 ## Notes
 
-Use `server-delete-images.js` if you'd like to delete each image after posting it.
+Use `server-delete-images.js` if you'd like to delete each image after posting it. Also, see `server-attribution.js` for an example how to credit the author if you're tweeting someone else's images.
