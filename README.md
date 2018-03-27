@@ -1,13 +1,13 @@
-![Tweetin'](https://botwiki.org/content/tutorials/make-an-image-posting-twitter-bot/images/posting-images.png)
+![Tweetin'](https://raw.githubusercontent.com/fourtonfish/random-image-twitterbot/master/posting-images.png)
 
 # random-image-twitterbot
 
 A simple skeleton project for a Twitter bot that tweets random images.
 
 1. Clone/download this repo and install dependencies with `npm install`.
-2. Rename `config-example.js` to `config.js` and fill out the necessary information ([see how](https://botwiki.org/tutorials/how-to-create-a-twitter-app/)).
+2. Rename `config-example.js` to `config.js` and fill out the necessary information ([see how](https://botwiki.org/resource/tutorial/how-to-create-a-twitter-app/)).
 3. Put all your images into the `images` folder.
-4. [Deploy your bot.](https://botwiki.org/tutorials/bot-hosting) Or [remix it on Glitch](https://glitch.com/edit/#!/random-image-twitterbot).
+4. [Deploy your bot.](https://botwiki.org/resources/hosting-platforms/) Or [remix it on Glitch](https://glitch.com/edit/#!/random-image-twitterbot).
 
 Oh and definitely join [Botmakers](https://botmakers.org/)! 
 
