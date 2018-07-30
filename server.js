@@ -31,8 +31,7 @@ function upload_random_image(images){
         /* Or you can pick random text from an array. */            
         status: random_from_array([
           'New picture!',
-          'Check this out!',
-          'How cute!'
+          'Check this out!'
         ]),
         media_ids: new Array(data.media_id_string)
       },
