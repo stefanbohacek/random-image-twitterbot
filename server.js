@@ -3,7 +3,7 @@ var fs = require('fs'),
     Twit = require('twit'),
     config = require(path.join(__dirname, 'config.js'));
 
-var T = new Twit(config);
+var T = new Twit(config.twitter);
 
 function random_from_array(images){
   return images[Math.floor(Math.random() * images.length)];
