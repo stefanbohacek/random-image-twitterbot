@@ -85,7 +85,7 @@ setInterval(function(){
 }, 10000);
 
 /*
-Or you could use cron (code.tutsplus.com/tutorials/scheduling-tasks-with-cron-jobs--net-8800), in which case you just need:
+  Or you could use cron (code.tutsplus.com/tutorials/scheduling-tasks-with-cron-jobs--net-8800), in which case you just need:
 */
 
 // upload_random_image(images);
