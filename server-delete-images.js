@@ -77,5 +77,15 @@ function upload_random_image(images){
   });
 }
 
+/*
+  You have two options here. Either you will keep your bot running, and upload images using setInterval (see below; 10000 means '10 milliseconds', or 10 seconds), --
+*/
+setInterval(function(){
+  upload_random_image(images);
+}, 10000);
 
-upload_random_image();
+/*
+Or you could use cron (code.tutsplus.com/tutorials/scheduling-tasks-with-cron-jobs--net-8800), in which case you just need:
+*/
+
+// upload_random_image(images);
