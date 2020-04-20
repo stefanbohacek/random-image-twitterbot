@@ -1,76 +1,51 @@
-var fs = require('fs'),
-    path = require('path'),
-    Twit = require('twit'),
-    config = require(path.join(__dirname, 'config.js'));
+const express = require( 'express' ),
+      helpers = require( __dirname + '/helpers/helpers.js' ),
+      twitter = require( __dirname + '/helpers/twitter.js' ),
+      fs = require( 'fs' ),
+      path = require( 'path' ),
+      request = require( 'request' ),
+      app = express();
 
-var T = new Twit(config.twitter);
 
-function random_from_array(images){
-  return images[Math.floor(Math.random() * images.length)];
-}
+app.use( express.static( 'public' ) );
 
-function upload_random_image(images){
-  console.log('Opening an image...');
-  var image_path = path.join(__dirname, '/images/' + random_from_array(images)),
-      b64content = fs.readFileSync(image_path, { encoding: 'base64' });
+/* You can use cron-job.org, uptimerobot.com, or a similar site to hit your /BOT_ENDPOINT to wake up your app and make your Twitter bot tweet. */
 
-  console.log('Uploading an image...');
+app.all( `/${process.env.BOT_ENDPOINT}`, function ( req, res ) {
+  console.log( "received a request..." );
 
-  T.post('media/upload', { media_data: b64content }, function (err, data, response) {
-    if (err){
-      console.log('ERROR:');
-      console.log(err);
+  helpers.loadImageAssets( function( err, urls ){
+    /* First, load images from the assets folder. */
+    if ( !err && urls && urls.length > 0 ){
+
+      /* Pick a random image. */
+      
+      let url = helpers.randomFromArray( urls );
+
+      /* You could also get the first image alphabetically. */
+      //  let url = urls.sort()[0];
+
+      /* If you want to delete the image after it's posted, update your .env file: */
+      //  REMOVE_POSTED_IMAGES='yes'
+
+      helpers.loadImage( url, function( err, img_data ){
+        twitter.postImage( helpers.randomFromArray( [
+          'Check this out!',
+          'New picture!'
+        ] ), img_data, function( err ){
+          if ( !err ){
+            let remove_posted_images = process.env.REMOVE_POSTED_IMAGES;
+            if ( remove_posted_images === 'yes' || remove_posted_images === 'true' ){
+              helpers.removeAsset( url );
+            }
+          }        
+        } );
+      } );
     }
-    else{
-      console.log('Image uploaded!');
-      console.log('Now tweeting it...');
+  } );
+  res.sendStatus( 200 );
+} );
 
-      T.post('statuses/update', {
-        /* You can include text with your image as well. */            
-        // status: 'New picture!', 
-        /* Or you can pick random text from an array. */            
-        status: random_from_array([
-          'New picture!',
-          'Check this out!'
-        ]),
-        media_ids: new Array(data.media_id_string)
-      },
-        function(err, data, response) {
-          if (err){
-            console.log('ERROR:');
-            console.log(err);
-          }
-          else{
-            console.log('Posted an image!');
-          }
-        }
-      );
-    }
-  });
-}
-
-
-fs.readdir(__dirname + '/images', function(err, files) {
-  if (err){
-    console.log(err);
-  }
-  else{
-    var images = [];
-    files.forEach(function(f) {
-      images.push(f);
-    });
-
-  /*
-    You have two options here. Either you will keep your bot running, and upload images using setInterval (see below; 10000 means '10 milliseconds', or 10 seconds), --
-  */
-    setInterval(function(){
-      upload_random_image(images);
-    }, 10000);
-
-  /*
-    Or you could use cron (code.tutsplus.com/tutorials/scheduling-tasks-with-cron-jobs--net-8800), in which case you just need:
-  */
-
-    // upload_random_image(images);
-  }
-});
+let listener = app.listen( process.env.PORT, function () {
+  console.log( `Your app is listening on port ${listener.address().port}` );
+} );
