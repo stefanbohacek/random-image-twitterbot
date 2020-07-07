@@ -1,27 +1,28 @@
 {
-	"name": "random-image-twitterbot",
-	"version": "0.0.1",
-	"description": "Tweet a random image.",
-	"main": "server.js",
-	"scripts": {
-		"start": "node server.js"
-	},
-	"dependencies": {
-		"twit": "^2.2.5",
-		"express": "^4.15.2"
-	},
-	"engines": {
-		"node": "8.x"
-	},
-	"repository": {
-		"url": ""
-	},
-	"keywords": [
-		"node",
-		"gomix",
-		"hyperdev",
-		"twitter",
-		"twitterbot",
-		"bot"
-	]
+  "name": "random-image-twitterbot",
+  "version": "0.0.1",
+  "description": "Tweet a random image.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "twit": "^2.2.5",
+    "express": "^4.15.2",
+    "cron": "^1.8.2"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": ""
+  },
+  "keywords": [
+    "node",
+    "gomix",
+    "hyperdev",
+    "twitter",
+    "twitterbot",
+    "bot"
+  ]
 }
