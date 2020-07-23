@@ -2,8 +2,6 @@
 
 # random-image-twitterbot-cron
 
-This project requires a [paid Glitch subscription](https://glitch.com/pricing).
-
 1. Update `.env` with your Twitter api keys ([see how to get them](https://botwiki.org/tutorials/how-to-create-a-twitter-app/)).
 2. Put all your images into the `assets` folder.
 3. If you want to delete the image after posting, set `REMOVE_POSTED_IMAGES='true'` inside `.env`. (Otherwise leave empty.)
