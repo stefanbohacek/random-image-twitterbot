@@ -91,6 +91,7 @@ module.exports = {
     } );
   },
   removeAsset: function( url, cb ){
+    console.log( 'removing asset', url )
     let helpers = this;
     console.log( 'removing asset...' );
     helpers.loadAssets( function( err, data ){
@@ -105,7 +106,8 @@ module.exports = {
       } );
 
       data += `{"uuid":"${img_data.uuid}","deleted":true}\n`;
-      fs.writeFile( __dirname + '/.glitch-assets', data );
+      console.log( data )
+      fs.writeFile(  './.glitch-assets', data );
       exec.exec( 'refresh' );
     } );
   },
