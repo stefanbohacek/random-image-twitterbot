@@ -1,24 +1,24 @@
 const images = [
-  {
-    file: 'baby-elephant.jpg',
-    source: 'https://www.hd-wallpapersdownload.com/desktop-free-baby-animal-wallpaper/'
-  },
-  {
-    file: 'baby-panda.jpg',
-    source: 'https://www.ordissinaute.fr/diaporamas/2016-05-09-beaux-bebes'
-  },
-  {
-    file: 'kitten.jpg',
-    source: 'https://pxhere.com/fi/photo/1124650'
-  },
-  {
-    file: 'puppy.jpg',
-    source: 'http://www.publicdomainpictures.net/view-image.php?image=10863&picture=baby-cockamo-in-yard'
-  },
-  {
-    file: 'two-kittens.jpg',
-    source: 'http://maxpixel.freegreatpicture.com/Animals-Cute-Kitten-Funny-Little-Cats-88152'
-  }
+    {
+        file: "all-power-to-the-people.jpg",
+        source: "https://source.com/image1",
+        altText: "An illustration of a raised fist with the text 'All power to the people' surrounding it."
+    },
+    {
+        file: "i-am-a-man.jpeg",
+        source: "https://source.com/image1",
+        altText: "A crowd of the 1968 Memphis sanitation strike protesters carrying 'I Am a Man! signs."
+    },
+    {
+        file: "la-lutte-continue.jpg",
+        source: "https://source.com/image1",
+        altText: "A French protest art poster showing a factory chimney morphing into a raised fist."
+    },
+    {
+        file: "love-trumps-hate.jpeg",
+        source: "https://source.com/image1",
+        altText: "A collage of various pins with political messages, including 'Love trumps hate' and 'America is for everyone'."
+    }
 ];
 
 module.exports = images;
