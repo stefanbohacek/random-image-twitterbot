@@ -1,19 +1,28 @@
 {
-  "name": "random-image-tweet",
-  "version": "1.0.0",
-  "description": "Tweet a random image from a folder.",
+  "name": "random-image-twitterbot",
+  "version": "0.0.1",
+  "description": "Tweet a random image.",
   "main": "server.js",
-  "dependencies": {
-    "gulp-nodemon": "^2.0.3",
-    "twit": "^2.1.0"
-  },
-  "devDependencies": {
-    "gulp": "^3.6.2",
-    "gulp-notify": "^1.2.5"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
-  "author": "stefan@fourtonfish.com",
-  "license": "MIT"
+  "dependencies": {
+    "twit": "^2.2.5",
+    "express": "^4.15.2",
+    "cron": "^1.8.2"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": ""
+  },
+  "keywords": [
+    "node",
+    "gomix",
+    "hyperdev",
+    "twitter",
+    "twitterbot",
+    "bot"
+  ]
 }

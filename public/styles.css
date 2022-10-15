@@ -1,0 +1,41 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: sans-serif;
+  font-size: 1.2em;
+  margin: 0 0 3em;
+}
+
+h1{
+  font-size: 1.8em;
+}
+
+section{
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+img{
+  max-width: 100%;
+}
+
+a, a:visited{
+  color: #4A89DC;
+  text-decoration: none;
+}
+
+a:hover{
+  transition: all 0.2s linear;  
+  text-decoration: underline;
+}
+
+w-100{
+  max-width: 100%;
+}
+
+.centered{
+  text-align: center;
+}
