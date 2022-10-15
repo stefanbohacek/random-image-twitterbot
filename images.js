@@ -1,4 +1,4 @@
-var images = [
+const images = [
   {
     file: 'baby-elephant.jpg',
     source: 'https://www.hd-wallpapersdownload.com/desktop-free-baby-animal-wallpaper/'

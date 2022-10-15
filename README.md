@@ -2,7 +2,7 @@
 
 # random-image-twitterbot
 
-A simple skeleton project for a Twitter bot that tweets random images.
+A simple starter project for a Twitter bot that tweets random images.
 
 1. Clone/download this repo and install dependencies with `npm install`.
 2. Rename `config-example.js` to `config.js` and fill out the necessary information ([see how](https://botwiki.org/resource/tutorial/how-to-create-a-twitter-app/)).
