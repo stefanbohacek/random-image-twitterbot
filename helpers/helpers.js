@@ -40,39 +40,39 @@ module.exports = {
             /* Filter images in the assets folder */
             data = data.split('\n');
             
-            let data_json = JSON.parse('[' + data.join(',').slice(0, -1) + ']');
+            const dataJSON = JSON.parse('[' + data.join(',').slice(0, -1) + ']');
             
-            let deleted_images = data_json.reduce((filtered, data_img) => {
-                if (data_img.deleted) {
-                    let someNewValue = { name: data_img.name, newProperty: 'Foo' }
-                    filtered.push(data_img.uuid);
+            const deletedImages = dataJSON.reduce((filtered, dataImage) => {
+                if (dataImage.deleted) {
+                    let someNewValue = { name: dataImage.name, newProperty: 'Foo' }
+                    filtered.push(dataImage.uuid);
                 }
                 return filtered;
             }, []),
-            img_urls = [];
+            imageUrls = [];
             
             for (let i = 0, j = data.length; i < j; i++){
                 if (data[i].length){
-                    let img_data = JSON.parse(data[i]),
-                    image_url = img_data.url;
+                    const imageData = JSON.parse(data[i]),
+                    imageUrl = imageData.url;
                     
-                    if (image_url && deleted_images.indexOf(img_data.uuid) === -1 && helpers.extensionCheck(image_url)){
-                        let file_name = helpers.getFilenameFromUrl(image_url).split('%2F')[1];
-                        console.log(`- ${file_name}`);
-                        img_urls.push(image_url);
+                    if (imageUrl && deletedImages.indexOf(imageData.uuid) === -1 && helpers.extensionCheck(imageUrl)){
+                        const fileName = helpers.getFilenameFromUrl(imageUrl).split('%2F')[1];
+                        console.log(`- ${fileName}`);
+                        imageUrls.push(imageUrl);
                     }
                 }
             }
-            if (img_urls && img_urls.length === 0){
+            if (imageUrls && imageUrls.length === 0){
                 console.log('no images found...');
             }
-            cb(null, img_urls);
+            cb(null, imageUrls);
         });
     },
     extensionCheck: (url) => {
-        let file_extension = path.extname(url).toLowerCase(),
+        let fileExtension = path.extname(url).toLowerCase(),
         extensions = ['.png', '.jpg', '.jpeg', '.gif'];
-        return extensions.indexOf(file_extension) !== -1;
+        return extensions.indexOf(fileExtension) !== -1;
     },
     getFilenameFromUrl: (url) => {
         return url.substring(url.lastIndexOf('/') + 1);
@@ -95,17 +95,17 @@ module.exports = {
         let helpers = this;
         console.log('removing asset...');
         helpers.loadAssets((err, data) => {
-            let data_array = data.split('\n'),
-            img_data;
-            data_array.forEach((d) => {
+            let dataArray = data.split('\n'),
+            imageData;
+            dataArray.forEach((d) => {
                 if (d.indexOf(url) > -1){
-                    img_data = JSON.parse(d);
-                    console.log(img_data);
+                    imageData = JSON.parse(d);
+                    console.log(imageData);
                     return;
                 }
             });
             
-            data += `{"uuid":"${img_data.uuid}","deleted":true}\n`;
+            data += `{"uuid":"${imageData.uuid}","deleted":true}\n`;
             console.log(data)
             fs.writeFile( './.glitch-assets', data);
             exec.exec('refresh');

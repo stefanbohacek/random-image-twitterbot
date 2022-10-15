@@ -39,8 +39,8 @@ const listener = app.listen(process.env.PORT, () => {
                         'New picture!'
                     ]), img_data, (err) => {
                         if (!err){
-                            const remove_posted_images = process.env.REMOVE_POSTED_IMAGES;
-                            if (remove_posted_images === 'yes' || remove_posted_images === 'true'){
+                            const removePostedImages = process.env.REMOVE_POSTED_IMAGES;
+                            if (removePostedImages === 'yes' || removePostedImages === 'true'){
                                 helpers.removeAsset(url);
                             }
                         }        

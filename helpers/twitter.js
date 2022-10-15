@@ -12,8 +12,8 @@ const helpers = require(__dirname + '/helpers.js'),
       T = new Twit(config.twitter);
 
 module.exports = {
-    postImage: (text, image_base64, cb) => {
-        T.post('media/upload', {media_data: image_base64}, (err, data, response) => {
+    postImage: (text, imageBase64, cb) => {
+        T.post('media/upload', {media_data: imageBase64}, (err, data, response) => {
             if (err){
                 console.log('ERROR:\n', err);
                 if (cb){
